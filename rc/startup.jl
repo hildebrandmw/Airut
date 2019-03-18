@@ -27,7 +27,7 @@ end
 
 _packages() = (
     PackageSpec(name = "Revise"),
-    PackageSpec(url = "https://github.com/vchuravy/Cthulhu.jl"),
+    PackageSpec(url = "https://github.com/JuliaDebug/Cthulhu.jl"),
 )
 
 #####
