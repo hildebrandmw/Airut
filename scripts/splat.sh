@@ -20,17 +20,27 @@ echo "Moving .vimrc"
 cp "$DIR/../rc/.vimrc" ~
 
 # Install vundle if it doesn't exist
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+#if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    echo "Install VimCompleteMe"
+    git clone https://github.com/ajh17/VimCompletesMe.git ~/.vim/pack/vendor/start/VimCompletesMe
 
     echo "Installing Vim plugins"
     vim +PluginInstall +qall
 
-    echo "Building YouCompleteMe"
+    #echo "Building YouCompleteMe"
     # install YouCompleteMe
-    ~/.vim/bundle/YouCompleteMe/install.py
-fi
+    #~/.vim/bundle/YouCompleteMe/install.py
+#fi
+
+#####
+##### .zshrc
+#####
+
+echo "Moving .zshrc"
+cp $DIR/../rc/.zshrc ~/.zshrc
 
 #####
 ##### julia startup.jl

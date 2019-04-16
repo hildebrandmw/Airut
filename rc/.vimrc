@@ -18,6 +18,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+set path+=**
+set wildmenu
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -32,10 +35,8 @@ noremap <F8> :tabn<CR>
 map <localleader>cc :w !pbcopy<CR><CR>
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>"
 
-" Macros
-" 1. Julia docstring macro
-let @d = 'wy%O"""    p/funcOi"""O'
-
+" guten-tags status line
+set statusline+=%{gutentags#statusline()}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set up Vundle Package Manager
@@ -53,8 +54,8 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'Zenburn'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lervag/vimtex'
@@ -76,21 +77,12 @@ let g:zenburn_high_Contrast = 1
 let g:zenburn_old_Visual = 1
 colorscheme zenburn
 
-" Disable some unicode stuff
-:let g:latex_to_unicode_tab = 0
-
 " Set up matching for text blocks
 runtime macros/matchit.vim
 
 " Highlight a vertical bar at line 81 - change color so it's not red.
 let &colorcolumn=93
 highlight ColorColumn ctermbg=58
-
-" Shortcut for activating/deactivating YCM
-" turn off YCM
-" nnoremap <leader>y :let g:ycm_auto_trigger=0<CR> 
-" " turn on YCM
-" nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR> 
 
 " open NERDTree
 map <C-n> :NERDTreeToggle<CR>
