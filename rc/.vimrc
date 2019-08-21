@@ -66,6 +66,9 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End Vundle Package Manger
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add "!" to keywords
+autocmd FileType julia :set iskeyword+=!
+
 " Turn off auto indenting because it never works right.
 let b:did_indent = 1
 

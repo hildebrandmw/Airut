@@ -49,3 +49,9 @@ cp $DIR/../rc/.zshrc ~/.zshrc
 echo "Moving startup.jl"
 mkdir -p ~/.julia/config
 cp "$DIR/../rc/startup.jl" ~/.julia/config/
+
+#####
+##### Ctagts
+#####
+echo "Moving ctags"
+cp "$DIR/../rc/.ctags" ~/.ctags
