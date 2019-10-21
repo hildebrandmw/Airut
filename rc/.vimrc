@@ -27,8 +27,11 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-"Trim whitespce before write
+" Trim whitespce before write
 autocmd BufWritePre * :call TrimWhitespace()
+
+" Soft wrapping
+command! -nargs=* Wrap set wrap linebreak nolist
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience mappings
