@@ -21,6 +21,15 @@ nnoremap <C-H> <C-W><C-H>
 set path+=**
 set wildmenu
 
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+"Trim whitespce before write
+autocmd BufWritePre * :call TrimWhitespace()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -33,7 +42,7 @@ inoremap jk <ESC>
 noremap <F7> :tabp<CR>
 noremap <F8> :tabn<CR>
 map <localleader>cc :w !pbcopy<CR><CR>
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>"
+nnoremap <silent> <F5> :call TrimWhitespace()<CR>
 
 " guten-tags status line
 set statusline+=%{gutentags#statusline()}
