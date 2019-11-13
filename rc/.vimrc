@@ -32,6 +32,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 
 " Soft wrapping
 command! -nargs=* Wrap set wrap linebreak nolist
+:set showbreak=…
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience mappings
