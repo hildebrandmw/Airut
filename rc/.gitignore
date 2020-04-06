@@ -1,3 +1,6 @@
 #Ignore misc temp files
 *.swp
 *.DS_Store
+tags
+deps/
+
