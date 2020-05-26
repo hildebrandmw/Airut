@@ -36,7 +36,8 @@ end
 
 _packages() = (
     PackageSpec(name = "Revise"),
-    PackageSpec(url = "https://github.com/JuliaDebug/Cthulhu.jl"),
+    PackageSpec(name = "OhMyREPL"),
+    PackageSpec(name = "Cthulhu"),
 )
 
 #####
