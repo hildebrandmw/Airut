@@ -6,6 +6,15 @@ try
 catch err
     @warn "Could not load Revise."
 end
+
+atreplinit() do repl
+    try
+        @eval using OhMyREPL
+    catch e
+        @warn "error while importing OhMyREPL" e
+    end
+end
+
 ENV["JULIA_EDITOR"] = "vim"
 
 # Custom overwrite for skipping over words.
