@@ -45,7 +45,8 @@ command! -nargs=* Wrap set wrap linebreak nolist
 inoremap jk <ESC>
 noremap <F7> :tabp<CR>
 noremap <F8> :tabn<CR>
-map <localleader>cc :w !pbcopy<CR><CR>
+map <localleader>cc <,'>:w !it2copy
+
 nnoremap <silent> <F5> :call TrimWhitespace()<CR>
 
 " guten-tags status line
