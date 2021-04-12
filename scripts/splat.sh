@@ -39,10 +39,10 @@ cp "$DIR/../rc/.vimrc" ~
 ##### it2copy
 #####
 
-if [ ! -d ~/bin]; then
-    mkdir ~/bin
-    cp $DIR/../rc/it2copy ~/bin/
-fi
+# if [ ! -d ~/bin ]; then
+#     mkdir ~/bin
+#     cp $DIR/../rc/it2copy ~/bin/
+# fi
 
 #####
 ##### .zshrc
