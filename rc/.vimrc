@@ -1,3 +1,10 @@
+" install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 set spelllang=en_us
 set encoding=utf-8
 syntax on
@@ -37,49 +44,25 @@ command! -nargs=* Wrap set wrap linebreak nolist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 1. Easy exit from insert mode to normal mode.
-" 2. F7 to move to previous tab.
-" 3. F8 to move to next tab.
-" 4. Easy copy to clipboard.
-" 5. Remove whitespace at end of line.
 inoremap jk <ESC>
 noremap <F7> :tabp<CR>
 noremap <F8> :tabn<CR>
-map <localleader>cc <,'>:w !it2copy
 
 nnoremap <silent> <F5> :call TrimWhitespace()<CR>
 
-" guten-tags status line
-set statusline+=%{gutentags#statusline()}
+call plug#begin('~/.vim/plugged')
+    Plug 'vim-scripts/Zenburn'
+    Plug 'scrooloose/nerdtree'
+    Plug 'JuliaEditorSupport/julia-vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'lervag/vimtex'
+    Plug 'tpope/vim-commentary'
+    if has('nvim')
+        Plug 'neovim/nvim-lspconfig'
+    end
+call plug#end()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set up Vundle Package Manager
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here
-Plugin 'JuliaEditorSupport/julia-vim'
-Plugin 'Zenburn'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'lervag/vimtex'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" End Vundle Package Manger
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add "!" to keywords
 autocmd FileType julia :set iskeyword+=!
 

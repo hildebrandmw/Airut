@@ -38,17 +38,8 @@ _packages() = (
     PackageSpec(name = "Revise"),
     PackageSpec(name = "OhMyREPL"),
     PackageSpec(name = "Cthulhu"),
+    PackageSpec(name = "LanguageServer"),
+    PackageSpec(name = "SymbolServer"),
+    PackageSpec(name = "StaticLint"),
 )
 
-#####
-##### May use at some point
-#####
-# try
-#     @eval using Rebugger
-#     # Activate Rebugger's key bindings
-#     Rebugger.keybindings[:stepin] = "\e[17~"      # Add the keybinding F6 to step into a function.
-#     Rebugger.keybindings[:stacktrace] = "\e[18~"  # Add the keybinding F7 to capture a stacktrace.
-#     atreplinit(Rebugger.repl_init)
-# catch
-#     @warn "Could not load Rebugger."
-# end
