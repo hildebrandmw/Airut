@@ -58,6 +58,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'lervag/vimtex'
     Plug 'tpope/vim-commentary'
+    Plug 'kdheepak/JuliaFormatter.vim'
     if has('nvim')
         Plug 'neovim/nvim-lspconfig'
     end
@@ -65,6 +66,7 @@ call plug#end()
 
 " Add "!" to keywords
 autocmd FileType julia :set iskeyword+=!
+nnoremap <localleader>jf :JuliaFormatterFormat<CR>
 
 " Turn off auto indenting because it never works right.
 let b:did_indent = 1

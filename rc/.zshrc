@@ -94,10 +94,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/home/mark/julia-1.5.0/bin:/usr/local/sbin:$PATH:/home/mark/bin"
+export PATH="/home/mark/tools/julia-1.6.2/bin:/usr/local/sbin:$PATH:/home/mark/bin"
 
 bindkey "[A" history-beginning-search-backward
 bindkey "[B" history-beginning-search-forward
 
 bindkey "[C" forward-word
 bindkey "[D" backward-word
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
