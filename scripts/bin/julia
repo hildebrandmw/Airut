@@ -1,9 +1,0 @@
-#!/bin/bash
-JULIA=/home/mark/tools/julia-1.6.2/bin/julia
-if [[ ${JULIA_TRACE_COMPILE} = "1" ]]; then
-    exec ${JULIA} --trace-compile=/home/mark/Airut/scripts/packagecompiler/precompile_statements.jl "$@"
-elif [[ -f /home/mark/Airut/scripts/languageserver.so ]]; then
-    exec ${JULIA} --sysimage=/home/mark/Airut/scripts/languageserver.so "$@"
-else
-    exec ${JULIA} "$@"
-fi

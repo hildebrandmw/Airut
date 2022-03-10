@@ -1,10 +1,15 @@
 try
-    @eval using Revise
-    # Turn on Revise's automatic-evaluation behavior
-    Revise.async_steal_repl_backend()
-    @info "Starting Revise"
+    using Revise
+    println("Revise Activated!")
 catch err
-    @warn "Could not load Revise."
+    @warn "Could not load Revise!"
+end
+
+try
+    using Cthulhu
+    Cthulhu.CONFIG.asm_syntax=:intel
+catch err
+    @warn "Could not load Cthulhu!"
 end
 
 atreplinit() do repl
